@@ -1,0 +1,10 @@
+# Forge hook scratch space — token cursors and the auto-commit lock. Never commit these.
+.claude/.cache/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

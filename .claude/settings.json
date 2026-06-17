@@ -1,0 +1,29 @@
+{
+  "agent": "orchestrator",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/log-subagent.sh\" SubagentStart" }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/log-subagent.sh\" SubagentStop" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/log-tokens.sh\" SubagentStop" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/auto-commit.sh\" SubagentStop" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/log-tokens.sh\" Stop" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/auto-commit.sh\" Stop" }
+        ]
+      }
+    ]
+  }
+}
