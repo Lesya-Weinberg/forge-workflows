@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy this file to .forge/instance.json (instance-owned; NEVER synced). It tells `forge-sync` where this project's Forge template upstream lives. Prefer the git remote (works across machines); local_path is a same-machine fallback used as `scripts/forge-sync.sh --from <local_path>`.",
+  "role": "instance",
+  "upstream": {
+    "git_remote": "forge-upstream",
+    "git_url": "https://github.com/<you>/<your-forge-template>.git",
+    "git_ref": "main",
+    "local_path": "C:/Users/<you>/path/to/ClaudeForgeWorkflows-Project-Template"
+  },
+  "last_synced": null
+}

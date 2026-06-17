@@ -52,6 +52,36 @@ See `CLAUDE.md` for the full layout, the control plane, and the operating rules 
 into every agent. The artifact flow map and tier activation matrix live in
 `.claude/skills/reference/`.
 
+## Prerequisites
+Forge's hooks and structure-sync scripts are POSIX shell. You need **git**, **bash** (Git Bash on
+Windows), and **jq**; the manifest/sync also use a sha256 tool (`sha256sum`, `shasum`, or
+`openssl`). Without `jq`, token logging and commit attribution degrade. Verify with
+`bash scripts/forge-manifest.sh --check` (it also acts as a scaffold doctor).
+
+## CLAUDE.md is split (managed vs. instance)
+`CLAUDE.md` holds only your seeded **Project Stack** plus `@CLAUDE.base.md`, which imports the
+managed operating manual. The manual (`CLAUDE.base.md`) and everything under `.claude/` are
+template-owned and updated by `forge-sync`; your Project Stack and `workstream/` are never touched.
+Put per-project harness tweaks in `.claude/settings.local.json`, not `settings.json`, so they
+survive updates.
+
 ## To start a new project from this scaffold
-Copy the folder, clear `workstream/` of any prior feature artifacts, and re-seed the Project
-Stack block in `CLAUDE.md`. The agents, skills, hooks, and templates carry over unchanged.
+1. `git clone <your-forge-template-repo> my-project && cd my-project` (or copy the folder).
+2. Repurpose `origin` for the new project's own repo, and add the template as the update upstream:
+   `git remote add forge-upstream <your-forge-template-repo>`.
+3. Clear `workstream/` of any prior feature artifacts.
+4. Launch `claude --agent orchestrator`; `project-init` walks you through seeding the Project Stack
+   and vision, and writes `.forge/instance.json` (your upstream link).
+
+## Keeping a project in sync with the template
+The template is a versioned checkpoint (`.forge/version.json`). When it advances, an instance can
+pull the structural changes — ask the orchestrator to "sync the Forge structure" (the `forge-sync`
+skill). It dry-runs a diff first, pauses for your approval (structural changes are gated like a hard
+action), then applies only template-owned files — never your `workstream/`, Project Stack, or
+`settings.local.json`. Transport is the `forge-upstream` git remote, with a local-path fallback
+(`bash scripts/forge-sync.sh --from <path>`). Restart `claude` after a sync so changed agents load.
+
+### Maintaining the template itself
+After changing any managed file here: run `bash scripts/forge-manifest.sh` to refresh the hash
+manifest, bump `forge_version` in `.forge/version.json`, and add a `.forge/CHANGELOG.md` entry (with
+migration notes if a change needs manual follow-up in instances).

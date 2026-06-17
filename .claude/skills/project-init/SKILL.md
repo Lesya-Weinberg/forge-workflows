@@ -39,6 +39,12 @@ If either is true, run this skill before anything else. If both are seeded, skip
    Append a milestone line to `workstream/development-log.md` ("project initialized") and write
    `development-state.md` from the state template.
 
+6. **Link the Forge upstream (enables structure updates).** Copy `.forge/instance.json.example` to
+   `.forge/instance.json` and fill `upstream.git_url` (the GitHub repo of your Forge template)
+   and/or `upstream.local_path`. This lets the `forge-sync` skill later detect when this project's
+   scaffold has fallen behind the template and pull updates. Skip only if this project will never
+   track the template.
+
 ## Rules
 - The architecture hard rules you seed here become law for every implementer and reviewer. Be
   specific; vague rules can't be enforced.

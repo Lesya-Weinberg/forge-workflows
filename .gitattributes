@@ -1,0 +1,12 @@
+# Normalize line endings so bash hooks/scripts stay runnable on every OS.
+# Without this, autocrlf can hand a CRLF copy to Git Bash and break `#!/usr/bin/env bash`.
+* text=auto eol=lf
+*.sh text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Binaries (add project-specific ones in instances)
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
