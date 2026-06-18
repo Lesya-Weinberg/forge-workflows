@@ -3,9 +3,9 @@
   "role": "instance",
   "upstream": {
     "git_remote": "forge-upstream",
-    "git_url": "https://github.com/<you>/<your-forge-template>.git",
+    "git_url": "https://github.com/Lesya-Weinberg/forge-workflows.git",
     "git_ref": "main",
-    "local_path": "C:/Users/<you>/path/to/ClaudeForgeWorkflows-Project-Template"
+    "local_path": "C:/Users/gabri/OneDrive/Documents/Gabriel's Stuff/ClaudeForgeWorkflows-Project-Template"
   },
   "last_synced": null
 }

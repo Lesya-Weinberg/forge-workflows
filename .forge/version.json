@@ -93,7 +93,7 @@
     ".claude/templates/state/development-state.md": "8e6513a26afe89323ad4c1def7694ffe9b849e48d1751ba55bba6f4c0d6c7558",
     ".claude/templates/state/sprint-state.md": "e3515063196762a0f6c83df36ee5d4e29f5456f14b6a80906df11c441a5d8e3b",
     ".forge/CHANGELOG.md": "6adcf3b3017af681e49dacbc9c0353fa885c72a443214daadebb6546c0597b59",
-    ".forge/instance.json.example": "31bcab6126e46ca01e99300a706b0c505fedc57cd59e0cf1e39f180d1ba8d997",
+    ".forge/instance.json.example": "2a2f3a2917b9c4a5ebfe81ab049d4806dc95ec466b31cd523551c99bc610ee74",
     ".gitattributes": "556d41fcd73b143dbc4cd34cafcfaaef415dae0c201d9fd2d6c1d25e92e9a6e8",
     "CLAUDE.base.md": "0fcf566d52272d47ab185fada0b96dceaf40ebe9594d30e5961ca04dce5291f8",
     "scripts/forge-manifest.sh": "ccd879528e62af9f41400c82d7fbfb6b8e477839e6f098820f5cc3e831396c67",
